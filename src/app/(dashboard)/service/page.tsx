@@ -157,10 +157,10 @@ export default function ServicePage() {
       {/* Book Service Modal */}
       <Modal open={showBook} onClose={() => { setShowBook(false); reset() }} title="Book Service Slot" subtitle="Free service for customer vehicle" size="md">
         <form onSubmit={handleSubmit(d => bookMutation.mutate(d))} className="space-y-4">
-          <Input label="Vehicle ID" type="number" {...register('vehicle_id', { required: 'Required' })} error={errors.vehicle_id?.message} hint="Enter vehicle ID to book service" />
-          <Input label="Customer ID" type="number" {...register('customer_id', { required: 'Required' })} error={errors.customer_id?.message} />
+          <Input label="Vehicle ID" type="number" {...register('vehicle_id', { required: 'Required' })} error={errors.vehicle_id?.message as string} hint="Enter vehicle ID to book service" />
+          <Input label="Customer ID" type="number" {...register('customer_id', { required: 'Required' })} error={errors.customer_id?.message as string} />
           <div className="grid grid-cols-2 gap-4">
-            <Input label="Service Date" type="date" {...register('service_date', { required: 'Required' })} error={errors.service_date?.message} />
+            <Input label="Service Date" type="date" {...register('service_date', { required: 'Required' })} error={errors.service_date?.message as string} />
             <Input label="Service Time (optional)" type="time" {...register('service_time')} />
           </div>
           <div>

@@ -179,16 +179,16 @@ const toggleActiveMutation = useMutation({
   className="space-y-4">
 
           <div className="grid grid-cols-2 gap-4">
-            <Input label="Business Name" {...register('business_name', { required: 'Required' })} error={errors.business_name?.message} />
-            <Input label="Owner Name" {...register('name', { required: 'Required' })} error={errors.name?.message} />
+            <Input label="Business Name" {...register('business_name', { required: 'Required' })} error={errors.business_name?.message as string} />
+            <Input label="Owner Name" {...register('name', { required: 'Required' })} error={errors.name?.message as string} />
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <Input label="Email" type="email" {...register('email', { required: 'Required' })} error={errors.email?.message} />
-            <Input label="Mobile" {...register('mobile', { required: 'Required' })} error={errors.mobile?.message} />
+            <Input label="Email" type="email" {...register('email', { required: 'Required' })} error={errors.email?.message as string} />
+            <Input label="Mobile" {...register('mobile', { required: 'Required' })} error={errors.mobile?.message as string} />
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <Input label="Password" type="password" {...register('password', { required: 'Required' })} error={errors.password?.message} />
-            <Select label="District" options={districts} {...register('district_id', { required: 'Required' })} error={errors.district_id?.message} placeholder="Select..." />
+            <Input label="Password" type="password" {...register('password', { required: 'Required' })} error={errors.password?.message as string} />
+            <Select label="District" options={districts} {...register('district_id', { required: 'Required' })} error={errors.district_id?.message as string} placeholder="Select..." />
           </div>
           <div className="grid grid-cols-2 gap-4">
             <Select label="BDE (optional)" options={bdeUsers} {...register('bde_id')} placeholder="Select BDE..." />

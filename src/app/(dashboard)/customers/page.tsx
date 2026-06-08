@@ -144,13 +144,13 @@ export default function CustomersPage() {
       <Modal open={showAdd} onClose={() => { setShowAdd(false); reset() }} title="Add Customer" subtitle="Create a new customer record" size="lg">
         <form onSubmit={handleSubmit(d => createMutation.mutate(d))} className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
-            <Input label="Full Name" {...register('name', { required: 'Required' })} error={errors.name?.message} />
-            <Input label="Mobile" {...register('mobile', { required: 'Required' })} error={errors.mobile?.message} />
+            <Input label="Full Name" {...register('name', { required: 'Required' })} error={errors.name?.message as string} />
+            <Input label="Mobile" {...register('mobile', { required: 'Required' })} error={errors.mobile?.message as string} />
           </div>
           <div className="grid grid-cols-2 gap-4">
             <Input label="Email" type="email" {...register('email')} />
             <Select label="District" options={districts} {...register('district_id', { required: 'Required' })}
-              error={errors.district_id?.message} placeholder="Select district..." />
+              error={errors.district_id?.message as string} placeholder="Select district..." />
           </div>
           <div className="grid grid-cols-2 gap-4">
             <Input label="City" {...register('city')} />

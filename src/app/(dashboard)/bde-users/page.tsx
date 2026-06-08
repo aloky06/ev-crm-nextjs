@@ -142,12 +142,12 @@ export default function BdeUsersPage() {
       <Modal open={showAdd} onClose={() => { setShowAdd(false); reset() }} title="Add BDE User" subtitle="Create a new BDE in the hierarchy" size="lg">
         <form onSubmit={handleSubmit(d => createMutation.mutate(d))} className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
-            <Input label="Full Name" {...register('name', { required: 'Required' })} error={errors.name?.message} />
-            <Input label="Email" type="email" {...register('email', { required: 'Required' })} error={errors.email?.message} />
+            <Input label="Full Name" {...register('name', { required: 'Required' })} error={errors.name?.message as string} />
+            <Input label="Email" type="email" {...register('email', { required: 'Required' })} error={errors.email?.message as string} />
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <Input label="Mobile" {...register('mobile', { required: 'Required' })} error={errors.mobile?.message} />
-            <Input label="Password" type="password" {...register('password', { required: 'Required' })} error={errors.password?.message} />
+            <Input label="Mobile" {...register('mobile', { required: 'Required' })} error={errors.mobile?.message as string} />
+            <Input label="Password" type="password" {...register('password', { required: 'Required' })} error={errors.password?.message as string} />
           </div>
           <div className="grid grid-cols-2 gap-4">
             <Input label="Employee Code (optional)" {...register('employee_code')} />

@@ -273,16 +273,16 @@ export default function ProductsPage() {
           createMutation.mutate(cleanPayload);
         })} className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
-            <Input label={addTab === 'vehicle' ? 'Vehicle Model Name' : addTab === 'battery' ? 'Battery Name/Model' : addTab === 'charger' ? 'Charger Model' : 'Part Name'} {...register('name', { required: 'Required' })} error={errors.name?.message} />
+            <Input label={addTab === 'vehicle' ? 'Vehicle Model Name' : addTab === 'battery' ? 'Battery Name/Model' : addTab === 'charger' ? 'Charger Model' : 'Part Name'} {...register('name', { required: 'Required' })} error={errors.name?.message as string} />
             <Input label="HSN Code" {...register('hsn_code')} />
           </div>
           <Input label="Description" {...register('description')} />
 
           <div className="grid grid-cols-2 gap-4">
             {addTab === 'spare' && (
-              <Select label="Unit of Measurement" options={UNIT_TYPES} {...register('unit', { required: addTab === 'spare' ? 'Required' : false })} error={errors.unit?.message} placeholder="Select Unit..." />
+              <Select label="Unit of Measurement" options={UNIT_TYPES} {...register('unit', { required: addTab === 'spare' ? 'Required' : false })} error={errors.unit?.message as string} placeholder="Select Unit..." />
             )}
-            <Select label="Tax Rate (%)" options={TAX_RATES} {...register('tax_rate', { required: 'Required' })} error={errors.tax_rate?.message} placeholder="Select Tax..." />
+            <Select label="Tax Rate (%)" options={TAX_RATES} {...register('tax_rate', { required: 'Required' })} error={errors.tax_rate?.message as string} placeholder="Select Tax..." />
           </div>
 
           
@@ -309,7 +309,7 @@ export default function ProductsPage() {
             <h4 className="text-sm font-bold text-slate-800">Pricing & Inventory Config</h4>
             <div className="grid grid-cols-2 gap-4">
               <Input label="Purchase Price (Base) ₹" type="number" {...register('purchase_price')} />
-              <Input label="Sale Price (Retail) ₹" type="number" {...register('retail_price', { required: 'Required' })} error={errors.retail_price?.message} />
+              <Input label="Sale Price (Retail) ₹" type="number" {...register('retail_price', { required: 'Required' })} error={errors.retail_price?.message as string} />
 
             </div>
             <div className="grid grid-cols-2 gap-4">

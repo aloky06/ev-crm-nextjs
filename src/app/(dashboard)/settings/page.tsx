@@ -74,7 +74,7 @@ export default function SettingsPage() {
           </CardHeader>
           <CardContent className="grid grid-cols-2 gap-4">
             <div className="col-span-2">
-              <Input label="Company Name" {...register('company_name', { required: 'Required' })} error={errors.company_name?.message} />
+              <Input label="Company Name" {...register('company_name', { required: 'Required' })} error={errors.company_name?.message as string} />
             </div>
             <Input label="GSTIN" {...register('gstin')} />
             <Input label="State Code" {...register('state_code')} hint="e.g. 09 for UP, 07 for Delhi" />

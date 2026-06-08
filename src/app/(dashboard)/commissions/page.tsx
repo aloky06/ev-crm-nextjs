@@ -132,7 +132,7 @@ export default function CommissionsPage() {
               <option value="">Select BDE...</option>
               {bdeUsers.map((b: { value: number; label: string }) => <option key={b.value} value={b.value}>{b.label}</option>)}
             </select>
-            {errors.bde_id && <p className="text-xs text-red-500 mt-1">{errors.bde_id.message}</p>}
+            {errors.bde_id && <p className="text-xs text-red-500 mt-1">{errors.bde_id.message as string}</p>}
           </div>
           <div>
             <label className="text-xs font-semibold text-slate-700 block mb-1.5">Payment Mode</label>
@@ -141,7 +141,7 @@ export default function CommissionsPage() {
               <option value="">Select mode...</option>
               {['cash', 'upi', 'bank_transfer', 'cheque'].map(m => <option key={m} value={m}>{m.replace('_', ' ').toUpperCase()}</option>)}
             </select>
-            {errors.payment_mode && <p className="text-xs text-red-500 mt-1">{errors.payment_mode.message}</p>}
+            {errors.payment_mode && <p className="text-xs text-red-500 mt-1">{errors.payment_mode.message as string}</p>}
           </div>
           <div>
             <label className="text-xs font-semibold text-slate-700 block mb-1.5">Payment Reference</label>

@@ -255,7 +255,7 @@ export default function EmployeesPage() {
           <div className="grid grid-cols-2 gap-4">
             <Select label="Entity Type" options={ENTITY_OPTIONS}
               {...register('entity_type', { required: 'Required' })}
-              error={errors.entity_type?.message} placeholder="Select..." 
+              error={errors.entity_type?.message as string} placeholder="Select..." 
               onChange={(e: any) => { setEntityType(e.target.value); setEntityId(''); }}
             />
             {entityType === 'company' || !entityType ? (
@@ -271,17 +271,17 @@ export default function EmployeesPage() {
             )}
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <Input label="First Name" {...register('first_name', { required: 'Required' })} error={errors.first_name?.message} />
+            <Input label="First Name" {...register('first_name', { required: 'Required' })} error={errors.first_name?.message as string} />
             <Input label="Last Name" {...register('last_name')} />
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <Input label="Mobile" {...register('mobile', { required: 'Required' })} error={errors.mobile?.message} />
+            <Input label="Mobile" {...register('mobile', { required: 'Required' })} error={errors.mobile?.message as string} />
             <Input label="Email" type="email" {...register('email')} />
           </div>
           <div className="grid grid-cols-3 gap-4">
             <Select label="Employment Type" options={EMPLOYMENT_TYPES} placeholder="Select..."
-              {...register('employment_type', { required: 'Required' })} error={errors.employment_type?.message} />
-            <Input label="Joining Date" type="date" {...register('joining_date', { required: 'Required' })} error={errors.joining_date?.message} />
+              {...register('employment_type', { required: 'Required' })} error={errors.employment_type?.message as string} />
+            <Input label="Joining Date" type="date" {...register('joining_date', { required: 'Required' })} error={errors.joining_date?.message as string} />
             <div>
               <div className="flex items-center justify-between mb-1">
                 <label className="text-xs font-semibold text-slate-600 uppercase tracking-wider">Department</label>
@@ -301,7 +301,7 @@ export default function EmployeesPage() {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <Input label="Basic Salary (₹)" type="number" {...register('basic_salary', { required: 'Required' })} error={errors.basic_salary?.message} />
+            <Input label="Basic Salary (₹)" type="number" {...register('basic_salary', { required: 'Required' })} error={errors.basic_salary?.message as string} />
             <Input label="HRA (auto-calc if blank)" type="number" {...register('hra')} />
           </div>
           <div className="grid grid-cols-2 gap-4">

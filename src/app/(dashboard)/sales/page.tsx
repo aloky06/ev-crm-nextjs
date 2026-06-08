@@ -243,7 +243,7 @@ export default function SalesPage() {
             const taxAmt = parseFloat(d.taxable_amount) || 0;
             const discVal = parseFloat(d.discount_value) || 0;
             const discAmt = discountType === 'percent' ? (taxAmt * discVal / 100) : discVal;
-            const payload = { ...d, discount_amount: discAmt, with_battery: d.battery_type !== 'none' ? 'true' : 'false' };
+            const payload: any = { ...d, discount_amount: discAmt, with_battery: d.battery_type !== 'none' ? 'true' : 'false' };
             if (payload.customer_id === 'new') {
                 delete payload.customer_id;
             }
@@ -256,8 +256,8 @@ export default function SalesPage() {
                 <span className="flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-xs">1</span> Customer Details
               </h3>
               <div className="grid grid-cols-2 gap-4">
-                <Select label="Dealer" options={dealers} {...register('dealer_id', { required: 'Required' })} error={errors.dealer_id?.message} placeholder="Select dealer..." disabled={true} />
-                <Select label="Customer" options={[{value: 'new', label: '+ Add New Customer'}, ...customers]} {...register('customer_id', { required: 'Required' })} error={errors.customer_id?.message} placeholder="Select customer..." />
+                <Select label="Dealer" options={dealers} {...register('dealer_id', { required: 'Required' })} error={errors.dealer_id?.message as string} placeholder="Select dealer..." disabled={true} />
+                <Select label="Customer" options={[{value: 'new', label: '+ Add New Customer'}, ...customers]} {...register('customer_id', { required: 'Required' })} error={errors.customer_id?.message as string} placeholder="Select customer..." />
               </div>
 
               {isNewCustomer && (
@@ -375,7 +375,7 @@ export default function SalesPage() {
               <div className="flex gap-6">
                 {/* Left Side: Inputs */}
                 <div className="flex-1 space-y-4">
-                  <Input label="Taxable Amount (₹)" type="number" {...register('taxable_amount', { required: 'Required' })} error={errors.taxable_amount?.message} className="text-lg font-semibold" />
+                  <Input label="Taxable Amount (₹)" type="number" {...register('taxable_amount', { required: 'Required' })} error={errors.taxable_amount?.message as string} className="text-lg font-semibold" />
                   
                   <div>
                     <label className="text-xs font-semibold text-slate-700 block mb-1.5">Discount</label>
@@ -389,7 +389,7 @@ export default function SalesPage() {
                     </div>
                   </div>
 
-                  <Select label="Warranty Plan" options={WARRANTY_TYPES} {...register('warranty_type', { required: 'Required' })} error={errors.warranty_type?.message} placeholder="Select..." />
+                  <Select label="Warranty Plan" options={WARRANTY_TYPES} {...register('warranty_type', { required: 'Required' })} error={errors.warranty_type?.message as string} placeholder="Select..." />
                   
                   <div className="grid grid-cols-2 gap-4">
                     
@@ -460,7 +460,7 @@ export default function SalesPage() {
                               </label>
                           ))}
                       </div>
-                      {errors.payment_mode && <p className="text-xs text-red-500 mt-1">{errors.payment_mode.message}</p>}
+                      {errors.payment_mode && <p className="text-xs text-red-500 mt-1">{errors.payment_mode.message as string}</p>}
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
