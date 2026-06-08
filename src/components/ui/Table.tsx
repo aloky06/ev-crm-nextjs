@@ -24,9 +24,9 @@ export function Th({ children, className }: { children?: React.ReactNode; classN
   )
 }
 
-export function Td({ children, className, colSpan }: { children?: React.ReactNode; className?: string; colSpan?: number }) {
+export function Td({ children, className, colSpan, title }: { children?: React.ReactNode; className?: string; colSpan?: number; title?: string }) {
   return (
-    <td className={cn(className)} colSpan={colSpan}>
+    <td className={cn(className)} colSpan={colSpan} title={title}>
       {children}
     </td>
   )
