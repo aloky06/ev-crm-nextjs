@@ -218,7 +218,7 @@ export default function SalesPage() {
                     <Td><Badge label={s.status as string} status={s.status as string} /></Td>
                     <Td>
                       <div className="flex gap-1">
-                        <Button size="sm" variant="ghost" onClick={() => window.open(`http://localhost:8000/api/sales/${s.id}/invoice`, '_blank')}>
+                        <Button size="sm" variant="ghost" onClick={() => window.open(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/sales/${s.id}/invoice`, '_blank')}>
                           <Printer className="h-3.5 w-3.5" />
                         </Button>
                         <Button size="sm" variant="ghost" leftIcon={<Eye className="h-3.5 w-3.5" />} onClick={() => setViewItem(s)}>View</Button>
@@ -578,7 +578,7 @@ export default function SalesPage() {
               )}
             </div>
             <div className="flex justify-end pt-4 border-t border-slate-100">
-              <Button variant="primary" onClick={() => window.open(`http://localhost:8000/api/sales/${viewItem.id}/invoice`, '_blank')}>
+              <Button variant="primary" onClick={() => window.open(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/sales/${viewItem.id}/invoice`, '_blank')}>
                 <i className="bi bi-printer mr-2" />Print Invoice
               </Button>
             </div>
